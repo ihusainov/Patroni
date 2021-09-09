@@ -34,7 +34,7 @@ etcd:
   #Could be a comma separated string:
   #hosts: host1:port1,host2:port2
   #or an actual yaml list:
-  hosts: 110.20.30.41:2379,10.20.30.42:2379,10.20.30.43:2379
+  hosts: 10.20.30.41:2379,10.20.30.42:2379,10.20.30.43:2379
   
   #Once discovery is complete Patroni will use the list of advertised clientURLs
   #It is possible to change this behavior through by setting:
