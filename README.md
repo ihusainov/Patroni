@@ -1,1 +1,3 @@
 # Patroni
+
+Simple Patroni config
