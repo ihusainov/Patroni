@@ -1,3 +1,3 @@
 # Patroni
 
-Simple Patroni config
+Simple Patroni config for 10 instance
