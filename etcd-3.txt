@@ -56,7 +56,7 @@ systemctl restart etcd.service
 
 
 # Check etcd
-curl -L http://10.20.30.41:2379/v2/keys
+curl -L http://10.20.30.43:2379/v2/keys
 
 
 /mars/etcd/etcdctl --endpoints="10.20.30.41:2379,10.20.30.42:2379,10.20.30.43:2379" endpoint status -w table
@@ -70,7 +70,7 @@ curl -L http://10.20.30.41:2379/v2/keys
 # Файл конфигурации для сервера etcd.
 
 # Читабельное имя экземпляра.
-name: 'etcd-1'
+name: 'etcd-3'
 
 # Необходимо создать каталог '/data'
 # Путь к каталогу данных.
