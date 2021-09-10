@@ -1,8 +1,15 @@
 
+**Install pgbouncer**
+```
 sudo apt-get install pgbouncer
+```
+**Edit config files pgbouncer.ini**
+```
 vim /etc/pgbouncer/pgbouncer.ini
+```
 
-
+**pgbouncer.ini**
+```
 ;; database name = connect string
 ;;
 ;; connect string params:
@@ -39,15 +46,15 @@ admin_users = mars_admin
 ; comma-separated list of users who are just allowed to use
 ;    SHOW command
 stats_users = mars_admin
+```
 
-
-# Secret md5 file userlist
-
+**Secret md5 file userlist**
+```
 cat /etc/pgbouncer/userlist.txt
 
 "mars_admin" "md5a511c60150441d77e0ee7da4d8ebef6b"
 "root" "md521232f297a57a5a743894a0e4a801fc3"
-
+```
 
 
 
