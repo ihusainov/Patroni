@@ -7,7 +7,7 @@
 vim etcd_installer.sh
 ```
 
-**Entry install file**
+**Entry install file etcd_installer.sh**
 ```
 ETCD_VER=v3.4.14
 # choose either URL
@@ -22,7 +22,7 @@ tar xzvf /mars/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /mars/etcd --strip-compone
 rm -f /mars/etcd-${ETCD_VER}-linux-amd64.tar.gz
 ```
 
-**Create directory**
+**Create directory for etcd**
 ```
 mkdir -p /etc/etcd/
 mkdir -p /mars/etcd/data-dir
