@@ -1,0 +1,143 @@
+#----------------- etcd.conf.yml.sample
+# Файл конфигурации для сервера etcd.
+
+# Читабельное имя экземпляра.
+name: 'etcd-2'
+
+# Необходимо создать каталог '/data'
+# Путь к каталогу данных.
+data-dir: '/mars/etcd/data-dir'
+
+# Путь к каталогу wal архивов.
+wal-dir: '/mars/etcd/wal-dir'
+
+# Количество транзакций запуска моментального снимка на диск.
+snapshot-count: 10000
+
+# Время (в миллисекундах) интервала heartbeat.
+heartbeat-interval: 100
+
+# Время (в миллисекундах) для выбора до тайм-аута.
+election-timeout: 1000
+
+# Подавать сигнал тревоги, когда размер серверной части превышает заданную квоту. 0 означает использование
+# квоты по умолчанию.
+quota-backend-bytes: 0
+
+# Список разделенных запятыми URL-адресов для прослушивания однорангового трафика.
+listen-peer-urls: http://10.20.30.42:2380
+
+# Список разделенных запятыми URL-адресов для прослушивания клиентского трафика.
+listen-client-urls: http://10.20.30.42:2379
+
+# Максимальное количество файлов моментальных снимков для сохранения (0 не ограничено).
+max-snapshots: 5
+
+# Максимальное количество файлов wal для сохранения (0 не ограничено).
+max-wals: 5
+
+# Разделенный запятыми белый список источников для CORS (совместное использование ресурсов между источниками).
+cors:
+
+# Список одноранговых URL-адресов экземпляра для для внешнего взаимодейстия с остальной частью кластера.
+# URL-адреса должны быть списком, разделенным запятыми..
+initial-advertise-peer-urls: http://10.20.30.42:2380
+
+# Список клиентских URL-адресов этого участника для внешнего взаимодейстия.
+# URL-адреса должны быть списком, разделенным запятыми..
+advertise-client-urls: http://10.20.30.42:2379
+
+# URL-адрес обнаружения, используемый для начальной загрузки кластера.
+discovery:
+
+# Допустимые значения включают 'exit', 'proxy'
+discovery-fallback: 'proxy'
+
+# Прокси-сервер HTTP для использования для трафика к службе обнаружения.
+discovery-proxy:
+
+# Домен DNS, используемый для начальной загрузки кластера.
+discovery-srv:
+
+# Начальная конфигурация кластера для начальной загрузки.
+initial-cluster: 'etcd-1=http://10.20.30.41:2380,etcd-2=http://10.20.30.42:2380,etcd-3=http://10.20.30.43:2380'
+
+# Начальный токен кластера для кластера etcd во время начальной загрузки.
+initial-cluster-token: 'etcd-cluster-mars-token'
+
+# Начальное состояние кластера («новый» или «существующий»).
+initial-cluster-state: 'new'
+
+# Отклонять запросы на изменение конфигурации, которые могут привести к потере кворума.
+strict-reconfig-check: false
+
+# Принимать запросы клиентов etcd V2
+enable-v2: true
+
+# Включить данные профилирования во время выполнения через HTTP-сервер
+enable-pprof: true
+
+# Допустимые значения включают 'on', 'readonly', 'off'
+proxy: 'off'
+
+# Время (в миллисекундах), когда конечная точка будет находиться в состоянии сбоя.
+proxy-failure-wait: 5000
+
+# Время (в миллисекундах) интервала обновления конечных точек.
+proxy-refresh-interval: 30000
+
+# Время (в миллисекундах) интервала обновления конечных точек.
+proxy-dial-timeout: 1000
+
+# Время (в миллисекундах) для таймаута записи.
+proxy-write-timeout: 5000
+
+# Время (в миллисекундах) от чтения до тайм-аута.
+proxy-read-timeout: 0
+
+client-transport-security:
+  # Path to the client server TLS cert file.
+  cert-file:
+
+  # Path to the client server TLS key file.
+  key-file:
+
+  # Enable client cert authentication.
+  client-cert-auth: false
+
+  # Path to the client server TLS trusted CA cert file.
+  trusted-ca-file:
+
+  # Client TLS using generated certificates
+  auto-tls: false
+
+peer-transport-security:
+  # Path to the peer server TLS cert file.
+  cert-file:
+
+  # Path to the peer server TLS key file.
+  key-file:
+
+  # Enable peer client cert authentication.
+  client-cert-auth: false
+
+  # Path to the peer server TLS trusted CA cert file.
+  trusted-ca-file:
+
+  # Peer TLS using generated certificates.
+  auto-tls: false
+
+# Enable debug-level logging for etcd.
+debug: false
+
+logger: zap
+
+# Specify 'stdout' or 'stderr' to skip journald logging even when running under systemd.
+log-outputs: [stderr]
+
+# Force to create a new one member cluster.
+force-new-cluster: false
+
+auto-compaction-mode: periodic
+auto-compaction-retention: "1"
+#---------------------------------
